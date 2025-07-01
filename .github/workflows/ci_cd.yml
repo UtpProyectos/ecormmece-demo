@@ -51,6 +51,9 @@ jobs:
       - name: Compilar proyecto
         run: npm run build
 
+      - name: Crear fallback 404.html
+        run: cp dist/index.html dist/404.html
+
       - name: Subir artefacto a GitHub Pages
         uses: actions/upload-pages-artifact@v3
         with:
