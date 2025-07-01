@@ -10,6 +10,7 @@ test("muestra productos en la página de inicio", () => {
       <App />
     </MemoryRouter>
   );
-  expect(screen.getByText("Laptop")).toBeInTheDocument();
-  expect(screen.getByText("Mouse")).toBeInTheDocument();
+  expect(screen.getByText("Laptop Gamer")).toBeInTheDocument();
+expect(screen.getByText("Mouse Inalámbrico")).toBeInTheDocument();
+
 });
