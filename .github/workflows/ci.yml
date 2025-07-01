@@ -8,40 +8,40 @@ on:
 
 jobs:
   test:
-    name: 🧪 Ejecutar pruebas
+    name: Ejecutar pruebas
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Clonar repositorio
+      - name: Clonar repositorio
         uses: actions/checkout@v4
 
-      - name: 🟢 Instalar Node.js
+      - name: Instalar Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      - name: 📦 Instalar dependencias
+      - name: Instalar dependencias
         run: npm install
 
-      - name: 🧪 Ejecutar pruebas
+      - name: Ejecutar pruebas
         run: npm run test
 
   build:
-    name: 🛠️ Compilar proyecto
+    name: Compilar proyecto
     runs-on: ubuntu-latest
-    needs: test   # 🔁 Este job solo corre si el job "test" pasa
+    needs: test    
 
     steps:
-      - name: 📥 Clonar repositorio
+      - name: Clonar repositorio
         uses: actions/checkout@v4
 
-      - name: 🟢 Instalar Node.js
+      - name: Instalar Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      - name: 📦 Instalar dependencias
+      - name: Instalar dependencias
         run: npm install
 
-      - name: 🛠️ Compilar proyecto
+      - name: Compilar proyecto
         run: npm run build
