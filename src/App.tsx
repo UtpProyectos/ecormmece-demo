@@ -26,6 +26,7 @@ function App() {
         <h1 className="text-4xl font-extrabold mb-6">Nuestros Productos</h1>
         <Routes>
           <Route path="/" element={<Home addToCart={addToCart} />} />
+          <Route path="/ecormmece-demo" element={<Home addToCart={addToCart} />} />
           <Route
             path="/cart"
             element={<Cart cart={cart} onRemove={removeFromCart} />}
