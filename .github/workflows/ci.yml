@@ -7,7 +7,8 @@ on:
     branches: [main]
 
 jobs:
-  build-and-test:
+  test:
+    name: 🧪 Ejecutar pruebas
     runs-on: ubuntu-latest
 
     steps:
@@ -24,6 +25,23 @@ jobs:
 
       - name: 🧪 Ejecutar pruebas
         run: npm run test
+
+  build:
+    name: 🛠️ Compilar proyecto
+    runs-on: ubuntu-latest
+    needs: test   # 🔁 Este job solo corre si el job "test" pasa
+
+    steps:
+      - name: 📥 Clonar repositorio
+        uses: actions/checkout@v4
+
+      - name: 🟢 Instalar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: 📦 Instalar dependencias
+        run: npm install
 
       - name: 🛠️ Compilar proyecto
         run: npm run build
