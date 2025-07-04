@@ -72,3 +72,23 @@ jobs:
       - name: Desplegar página
         id: deployment
         uses: actions/deploy-pages@v4
+
+  release:
+    name: Crear Release
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
+
+      - name: Crear Release en GitHub
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v1.0.${{ github.run_number }}
+          name: Release v1.0.${{ github.run_number }}
+          body: |
+              Build exitoso.
+              Desplegado a GitHub Pages.
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
