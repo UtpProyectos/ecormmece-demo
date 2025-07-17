@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+  frontend:
+    build: .
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+
+  backend:
+    image: clue/json-server
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./data.json:/data/db.json
+    command: json-server --watch /data/db.json --host 0.0.0.0 --port 3000
