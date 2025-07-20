@@ -1,17 +1,12 @@
 version: '3.9'
 
 services:
-  frontend:
-    build: .
+  ecommerce-1:
+    image: ecommerce-demo
     ports:
       - "8080:80"
-    depends_on:
-      - backend
 
-  backend:
-    image: clue/json-server
+  ecommerce-2:
+    image: ecommerce-demo
     ports:
-      - "3000:3000"
-    volumes:
-      - ./data.json:/data/db.json
-    command: json-server --watch /data/db.json --host 0.0.0.0 --port 3000
+      - "8081:80"

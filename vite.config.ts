@@ -4,7 +4,7 @@ import react from "@vitejs/plugin-react";
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-   base: "/ecormmece-demo/",
+  base: '/',
   plugins: [react(),tailwindcss(),],
   test: {
     globals: true,
